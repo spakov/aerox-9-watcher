@@ -1,3 +1,26 @@
+## Getting started
+``` sh
+cd ~/Projects/
+git clone https://github.com/spakov/aerox-9-watcher.git
+cd aerox-9-watcher/
+$EDITOR aerox-9-watcher.py
+cd ~/.local/bin/
+ln -sf ~/Projects/aerox-9-watcher/aerox-9-watcher.py
+cd ~/.config/systemd/user/
+ln -sf ~/Projects/aerox-9-watcher/aerox-9-watcher.service
+systemctl --user daemon-reload
+systemctl --user enable --now aerox-9-watcher.service
+journalctl --user -u aerox-9-watcher.service
+```
+
+In OpenRGB, we need to make sure the following settings are configured:
+1. Settings
+	1. Start at Login Settings:
+		1. Start Server: checked
+2. SDK Server
+	1. Start Server
+
+## How this came about
 > [!Prompt (Claude Opus 5.5 Medium)]
 > Minor clarification of what I'm actually trying to do: when the (wireless) mouse wakes back up, run some configurable command (in this case, get OpenRGB to do something to reapply the theme). I may be trying to reinvent the wheel: are you able to find a plugin or anything that does that already?
 
