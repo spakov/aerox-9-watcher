@@ -1,0 +1,13 @@
+[Unit]
+Description=Reapply OpenRGB profile when the Aerox 9 wakes up
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/aerox-9-watcher.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
